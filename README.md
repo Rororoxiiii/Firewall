@@ -45,7 +45,8 @@ I didn't have time to write a test script to generate a large data file and test
 
 ### Optimization
 One possible optimization would be using binary search tree to store the rules. For example, we can consrtuct two BST, one for port numbers and one for ip adresses. For each port range or ip address range, we store the rule numbers that including this range. Therefore, the node for each tree would be like
-```class treeNode {
+```
+class treeNode {
 public:
 	int range_start;
 	int range_end;
@@ -55,7 +56,8 @@ public:
 
 Then we can construct a BST class derived from the set containor with customed comparator:
 
-```class myComparator {
+```
+class myComparator {
 public:
     bool operator() (const treeNode& node1, const treeNode& node2) const {
         return node1.range_start < node2.range_start;
